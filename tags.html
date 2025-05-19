@@ -149,8 +149,14 @@
 </head>
 <body>
     <!-- Demo containers -->
+    <h2>TagManager instance 1</h2>
     <div id="demo1"></div>
+
+    <h2>TagManager instance 2</h2>
     <div id="demo2"></div>
+
+    <h2>Simulations</h2>
+    <button onclick="tagsM2.clearTags()">Simulate clearBtn operation for Instance 2</button>
 
     <script>
         class TagManager {
@@ -184,6 +190,14 @@
             setupEventListeners() {
                 this.input.addEventListener('input', () => this.handleInput());
                 this.input.addEventListener('focus', () => this.showSuggestions());
+                
+                /* Press Enter to add tag - deactivated for now
+                this.input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' && this.input.value) {
+                        this.addTag(this.input.value);
+                    }
+                });
+                */
                 
                 document.addEventListener('click', (e) => {
                     if (!this.container.contains(e.target)) {
